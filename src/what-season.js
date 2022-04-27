@@ -18,14 +18,21 @@ function getSeason(date) {
   // remove line with error and write your code here
   // console.log('date: ' + (date instanceof Date) + ' nan: ' + !isNaN(date.valueOf()))
   // console.log('full ' + )
-  console.log(date);
-  console.log(!!date);
+
   if (!!date == false) {
     return 'Unable to determine the time of year!';
   }
+  // console.dir(date.__proto__ == (new Date).__proto__);
+
   if (!(date instanceof Date)) {
     throw new Error('Invalid date!');
+  }
+  try {
+    date.getDay();
+    date.getTime();
 
+  } catch (error) {
+    throw new Error('Invalid date!')
   }
 
   let month = date.getMonth();
