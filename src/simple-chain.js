@@ -12,22 +12,26 @@ const chainMaker = {
     return this.allData.length;
   },
   addLink(value) {
-    console.log(value);
     this.allData.push(value);
+    return this
 
   },
   removeLink(position) {
-    if (position >= this.allData.length || (typeof position != 'number')) {
+    if (position >= this.allData.length || position <= 0 || (typeof position != 'number')) {
+      this.allData = [];
       throw new Error('You can\'t remove incorrect link!');
     }
-    this.allData.splice(position, 1);
+    this.allData.splice(position - 1, 1);
+    return this
   },
   reverseChain() {
-    console.log(this.allData)
     this.allData.reverse();
+    return this
   },
   finishChain() {
-    return this.allData.forEach(elem => `( ${elem} )`).join('~~');
+    let arr = this.allData.map(elem => `( ${elem} )`).join('~~');
+    this.allData = [];
+    return arr;
   }
 };
 
