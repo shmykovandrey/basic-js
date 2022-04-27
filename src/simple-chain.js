@@ -7,41 +7,27 @@ const {
  * 
  */
 const chainMaker = {
-  allData: new Array,
+  allData: [],
   getLength() {
-    console.log('getLenght ' + this.allData);
-    return this.arr.length;
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.allData.length;
   },
   addLink(value) {
-    console.log(chainMaker.allData);
-    // if (typeof value !== 'number'){
-    //   throw
-    // }
-    console.log('addLink ' + this.allData + ' ' + value);
+    console.log(value);
     this.allData.push(value);
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+
   },
   removeLink(position) {
-    console.log('remove ' + this.arr + ' ' + position);
-    if (position >= this.arr.length || (typeof position != 'number')) {
-      throw new Error('You can\'t remove incorrect link!')
+    if (position >= this.allData.length || (typeof position != 'number')) {
+      throw new Error('You can\'t remove incorrect link!');
     }
-    this.arr.splice(position, 1);
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    this.allData.splice(position, 1);
   },
   reverseChain() {
-    this.arr.reverse();
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    console.log(this.allData)
+    this.allData.reverse();
   },
   finishChain() {
     return this.allData.forEach(elem => `( ${elem} )`).join('~~');
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
   }
 };
 
