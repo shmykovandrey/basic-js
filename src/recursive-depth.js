@@ -20,16 +20,20 @@ class DepthCalculator {
     // if (Array.isArray(arr)) {
     //   count++;
     // }
+    let max = 0;
     arr.forEach(elem => {
       if (Array.isArray(elem)) {
+
         // console.log(count, elem);
-        count += this.calculateDepth(elem);
-        // console.log(count);
+        let newMax = this.calculateDepth(elem)
+        if (max < newMax) {
+          max = newMax;
+        }
+        // console.log();
       }
     });
-    console.log(arr);
-    console.log(count)
-    return count
+    count += max;
+    return count;
     //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
