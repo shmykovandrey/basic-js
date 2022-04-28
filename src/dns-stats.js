@@ -25,7 +25,15 @@ const {
  *
  */
 function getDNSStats(domains) {
-
+  let obj = {};
+  domains.forEach(elem => {
+    let fullDomain = '';
+    elem.split('.').reverse().forEach(domain => {
+      fullDomain += '.' + domain;
+      obj.hasOwnProperty(fullDomain) ? obj[fullDomain]++ : obj[fullDomain] = 1;
+    });
+  })
+  return obj
 }
 
 module.exports = {
